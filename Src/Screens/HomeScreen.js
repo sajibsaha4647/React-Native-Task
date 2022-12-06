@@ -28,26 +28,25 @@ const HomeScreen = () => {
   const HomeState = useSelector(state => state.HomeData);
   const dispatch = useDispatch();
 
-  const [ActiveState, setActiveState] = useState('A');
+  const [ActiveState, setActiveState] = useState('');
 
   const outputBox = () => {
-    let sum = parseInt(HomeState.inputdata) + 1;
-    dispatch(fetch_outputBox_actions(sum));
-    if (HomeState.inputdata == 1) {
-      setActiveState('A');
-    } else if (HomeState.inputdata == 2) {
-      setActiveState('B');
-    } else if (HomeState.inputdata == 3) {
-      setActiveState('C');
-    } else if (HomeState.inputdata == 4) {
-      setActiveState('D');
-    } else if (HomeState.inputdata == 5) {
-      setActiveState('E');
-    } else if (HomeState.inputdata == 6) {
-      setActiveState('F');
-    } else {
-      setActiveState('A');
-    }
+    // let sum = parseInt(HomeState.inputdata) + 1;
+    // if (HomeState.inputdata == 1) {
+    //   setActiveState('A');
+    // } else if (HomeState.inputdata == 2) {
+    //   setActiveState('B');
+    // } else if (HomeState.inputdata == 3) {
+    //   setActiveState('C');
+    // } else if (HomeState.inputdata == 4) {
+    //   setActiveState('D');
+    // } else if (HomeState.inputdata == 5) {
+    //   setActiveState('E');
+    // } else if (HomeState.inputdata == 6) {
+    //   setActiveState('F');
+    // } else {
+    //   setActiveState('A');
+    // }
   };
 
   const BallMovingState = () => {};
@@ -69,13 +68,6 @@ const HomeScreen = () => {
             onChangeText={e => {
               dispatch(fetch_inputBox_actions(e));
             }}
-            onEndEditing={() => {
-              if (HomeState.inputdata == '') {
-                dispatch(fetch_outputBox_actions(0));
-              } else {
-                outputBox();
-              }
-            }}
             value={HomeState.inputdata}
             placeholder="Enter number to move the ball"
             keyboardType="number-pad"
@@ -96,7 +88,11 @@ const HomeScreen = () => {
               alignItems: 'center',
               borderRadius: 10,
             }}>
-            <Text style={{color: '#fff'}}>{HomeState.outputData}</Text>
+            <Text style={{color: '#fff'}}>
+              {HomeState.inputdata == ''
+                ? 0
+                : parseInt(HomeState.inputdata) + 1}
+            </Text>
           </View>
         </View>
         <ScrollView showsVerticalScrollIndicator={false}>
@@ -184,7 +180,7 @@ const HomeScreen = () => {
               }}>
               <Text>A</Text>
             </View>
-            {HomeState.inputdata == '' && ActiveState == 'A' ? (
+            {HomeState.inputdata == '' ? (
               <View
                 style={{
                   position: 'absolute',
@@ -201,7 +197,7 @@ const HomeScreen = () => {
                     borderRadius: (width * 0.138) / 2,
                   }}></View>
               </View>
-            ) : HomeState.inputdata == 1 && ActiveState == 'A' ? (
+            ) : HomeState.inputdata == 1 ? (
               <View
                 style={{
                   position: 'absolute',
@@ -218,7 +214,7 @@ const HomeScreen = () => {
                     borderRadius: (width * 0.138) / 2,
                   }}></View>
               </View>
-            ) : HomeState.inputdata == 2 && ActiveState == 'B' ? (
+            ) : HomeState.inputdata == 2 ? (
               <View
                 style={{
                   position: 'absolute',
@@ -235,7 +231,7 @@ const HomeScreen = () => {
                     borderRadius: (width * 0.138) / 2,
                   }}></View>
               </View>
-            ) : HomeState.inputdata == 3 && ActiveState == 'C' ? (
+            ) : HomeState.inputdata == 3 ? (
               <View
                 style={{
                   position: 'absolute',
@@ -252,12 +248,12 @@ const HomeScreen = () => {
                     borderRadius: (width * 0.138) / 2,
                   }}></View>
               </View>
-            ) : HomeState.inputdata == 4 && ActiveState == 'D' ? (
+            ) : HomeState.inputdata == 4 ? (
               <View
                 style={{
                   position: 'absolute',
                   alignItems: 'flex-end',
-                  bottom: width * 0.4,
+                  bottom: width * 0.39,
                   left: width * 0.06,
                 }}>
                 <View
@@ -269,7 +265,7 @@ const HomeScreen = () => {
                     borderRadius: (width * 0.128) / 2,
                   }}></View>
               </View>
-            ) : HomeState.inputdata == 5 && ActiveState == 'E' ? (
+            ) : HomeState.inputdata == 5 ? (
               <View
                 style={{
                   position: 'absolute',
@@ -286,7 +282,7 @@ const HomeScreen = () => {
                     borderRadius: (width * 0.138) / 2,
                   }}></View>
               </View>
-            ) : HomeState.inputdata == 6 && ActiveState == 'F' ? (
+            ) : HomeState.inputdata == 6 ? (
               <View
                 style={{
                   position: 'absolute',
