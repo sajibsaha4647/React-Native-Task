@@ -1,0 +1,3 @@
+export const INPUT_BOX_TYPES = 'INPUT_BOX_TYPES';
+export const OUTPUT_BOX_TYPES = 'OUTPUT_BOX_TYPES';
+export const MOVE_BALL_TYPES = 'MOVE_BALL_TYPES';
