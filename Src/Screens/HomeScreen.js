@@ -62,8 +62,21 @@ const HomeScreen = () => {
             <Text style={{color: '#fff'}}>12</Text>
           </View>
         </View>
-        <View style={{paddingHorizontal: 20, marginTop: 10}}>
+        <View
+          style={{paddingHorizontal: width * 0.04, marginTop: width * 0.027}}>
           <View style={{borderTopWidth: 1, borderColor: '#000'}}></View>
+          <View style={{position: 'absolute'}}>
+            <Text>E</Text>
+          </View>
+          <View
+            style={{
+              position: 'absolute',
+              alignItems: 'flex-end',
+              top: 0,
+              right: 0,
+            }}>
+            <Text>F</Text>
+          </View>
           <View style={{borderLeftWidth: 1, borderLeftColor: '#000'}}>
             <Text></Text>
             <Text></Text>
@@ -74,14 +87,32 @@ const HomeScreen = () => {
             <Text></Text>
             <Text></Text>
           </View>
-          <View style={{width: 100}}>
+          <View
+            style={{
+              position: 'absolute',
+              alignItems: 'flex-end',
+              top: width * 0.37,
+              left: 0,
+            }}>
+            <Text>D</Text>
+          </View>
+          <View style={{width: width * 0.243}}>
             <View style={{borderTopWidth: 1, borderColor: '#000'}}></View>
+          </View>
+          <View
+            style={{
+              position: 'absolute',
+              alignItems: 'flex-end',
+              top: width * 0.37,
+              left: width * 0.3,
+            }}>
+            <Text>C</Text>
           </View>
           <View
             style={{
               justifyContent: 'flex-end',
               alignItems: 'flex-end',
-              width: 100,
+              width: width * 0.243,
             }}>
             <View style={{borderLeftWidth: 1, borderLeftColor: '#000'}}>
               <Text></Text>
@@ -94,8 +125,42 @@ const HomeScreen = () => {
               <Text></Text>
             </View>
           </View>
-          <View style={{width: 250, marginLeft: 100}}>
+          <View
+            style={{
+              position: 'absolute',
+              alignItems: 'flex-end',
+              top: width * 0.73,
+              left: width * 0.24,
+            }}>
+            <Text>B</Text>
+          </View>
+          <View style={{width: width * 0.6, marginLeft: width * 0.24}}>
             <View style={{borderTopWidth: 1, borderColor: '#000'}}></View>
+          </View>
+          <View
+            style={{
+              position: 'absolute',
+              alignItems: 'flex-end',
+              top: width * 0.73,
+              right: width * 0.05,
+            }}>
+            <Text>A</Text>
+          </View>
+          <View
+            style={{
+              position: 'absolute',
+              alignItems: 'flex-end',
+              top: 0,
+              right: width * 0.027,
+            }}>
+            <View
+              style={{
+                height: width * 0.138,
+                width: width * 0.138,
+                marginTop: 5,
+                backgroundColor: 'red',
+                borderRadius: (width * 0.138) / 2,
+              }}></View>
           </View>
         </View>
       </View>
