@@ -6,7 +6,7 @@ import {
 
 const initialstate = {
   inputdata: '',
-  outputData: '',
+  outputData: 0,
   movedata: '',
 };
 

@@ -23,6 +23,13 @@ const HomeScreen = () => {
 
   const [Security, setsecurity] = useState(true);
 
+  const outputBox = () => {
+    let sum = parseInt(HomeState.inputdata) + 1;
+    dispatch(fetch_outputBox_actions(sum));
+  };
+
+  const BallMoving = () => {};
+
   return (
     <View style={styles.container}>
       <View style={{height: width * 0.136}}>
@@ -39,6 +46,13 @@ const HomeScreen = () => {
             onChangeText={e => {
               dispatch(fetch_inputBox_actions(e));
             }}
+            onSubmitEditing={() => {
+              if (HomeState.inputdata !== '') {
+                outputBox();
+              } else {
+                dispatch(fetch_outputBox_actions(0));
+              }
+            }}
             value={HomeState.inputdata}
             placeholder="Enter number to move the ball"
             keyboardType="number-pad"
@@ -52,14 +66,14 @@ const HomeScreen = () => {
           }}>
           <View
             style={{
-              height: 100,
-              width: 100,
+              height: width * 0.277,
+              width: width * 0.277,
               backgroundColor: '#000',
               justifyContent: 'center',
               alignItems: 'center',
               borderRadius: 10,
             }}>
-            <Text style={{color: '#fff'}}>12</Text>
+            <Text style={{color: '#fff'}}>{HomeState.outputData}</Text>
           </View>
         </View>
         <View
@@ -150,7 +164,7 @@ const HomeScreen = () => {
             style={{
               position: 'absolute',
               alignItems: 'flex-end',
-              top: 0,
+              bottom: width * 0.027,
               right: width * 0.027,
             }}>
             <View
